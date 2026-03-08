@@ -1,0 +1,483 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0c0c14;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Container for logo and text */
+.cert-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns content better */
+    gap: 18px; /* Added more space between logo and text */
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+/* The Square Boundary for Logos */
+.logo-square {
+    width: 42px; /* Increased size */
+    height: 42px;
+    background: rgba(255, 255, 255, 0.05); /* Very dark glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Defined edge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px; /* Slightly rounded square */
+    flex-shrink: 0; /* Prevents the square from squishing */
+    overflow: hidden;
+}
+
+.logo-square img {
+    width: 80%; /* Logo fits nicely inside the square */
+    height: 80%;
+    object-fit: contain;
+}
+
+/* Fancy Glowing Text */
+.cert-link {
+    text-decoration: none;
+    text-align: left;
+}
+
+.fancy-name {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #eee;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover Effect: Text Glows Neon */
+.cert-card:hover .fancy-name {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px rgba(0, 234, 255, 0.5);
+    transform: translateX(5px); /* Moves text slightly for fancy effect */
+}
+
+/* Subtle border highlight on the square when hovering card */
+.cert-card:hover .logo-square {
+    border-color: #00eaff;
+    background: rgba(0, 234, 255, 0.05);
+}
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, #4b00ff33, transparent),
+        radial-gradient(circle at 80% 70%, #00eaff33, transparent);
+    z-index: -1;
+}
+
+/* Special Education Timeline */
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* The Vertical Neon Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 31px; /* Align with the dots */
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, #00eaff, #7c3aed, transparent);
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 60px; /* Space for the line/dot */
+}
+
+/* The Glowing Dots */
+.timeline-dot {
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: #0c0c14;
+    border: 3px solid #00eaff;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 15px #00eaff;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.timeline-date {
+    display: inline-block;
+    color: #00eaff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content .institute {
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Education Tags (Special Skill Indicators) */
+.education-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.education-tags span {
+    background: rgba(124, 58, 237, 0.2);
+    color: #d1b9ff;
+    padding: 4px 12px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(124, 58, 237, 0.4);
+}
+
+/* Hover Effect */
+.timeline-item:hover .timeline-content {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #00eaff;
+    transform: translateX(10px);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #00eaff;
+    box-shadow: 0 0 25px #00eaff;
+}
+
+p {
+  line-height: 1.8;       /* spacing inside paragraphs */
+  margin-bottom: 15px;    /* spacing between paragraphs */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    border-radius: 40px;
+    display: flex;
+    gap: 25px;
+    z-index: 1000;
+}
+
+.nav-links a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: #00eaff; }
+
+/* Hero Section */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero span { color: #00eaff; }
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-primary { background: #7c3aed; padding: 12px 22px; border-radius: 8px; color: white; text-decoration: none; }
+.btn-secondary { border: 1px solid white; padding: 12px 22px; border-radius: 8px; color: white; text-decoration: none; }
+.btn-resume { background: #00eaff; padding: 12px 22px; border-radius: 8px; color: black; text-decoration: none; font-weight: bold; }
+
+/* Horizontal Profile Container */
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+}
+
+.profile-right {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+}
+
+.profile-right h2 {
+    color: #00eaff;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.profile-right p {
+    color: #ddd;
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 500px;
+}
+
+/* Carousel Sliding Logic */
+.cert-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+}
+
+.cert-carousel {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 0 50px;
+}
+
+.cert-card {
+    min-width: 240px;
+    opacity: 0.3;
+    filter: blur(3px);
+    transform: scale(0.8);
+    transition: 0.5s;
+    text-align: center;
+}
+
+.cert-card.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.1);
+}
+
+.cert-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.arrow {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* General Sections */
+.section-title { text-align: center; font-size: 36px; margin: 80px 0 40px; color: #00eaff; text-transform: uppercase; }
+.grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; padding: 0 10%; }
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 14px;
+    width: 280px;
+    text-align: center;
+}
+
+/* Awards Section - Side by Side Layout */
+.awards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes both cards the same height */
+    gap: 30px;
+    padding: 0 10% 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.award-card {
+    flex: 1; /* Allows cards to grow equally */
+    min-width: 300px;
+    max-width: 450px;
+}
+
+.award-img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 234, 255, 0.3);
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .awards-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .award-card {
+        width: 100%;
+    }
+}
+
+/* Vision Section Visual Overhaul */
+.vision-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10% 100px;
+}
+
+.vision-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 40px;
+    border-radius: 30px;
+    max-width: 900px;
+    text-align: center;
+    overflow: hidden; /* For the glow effect */
+}
+
+/* The Glowing Accent */
+.vision-box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 234, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.vision-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #00eaff);
+}
+
+.vision-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #eee;
+    margin-bottom: 40px;
+}
+
+.vision-text span {
+    color: #00eaff;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 234, 255, 0.5);
+}
+
+/* Goal Items Layout */
+.vision-goals {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.goal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.goal-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.goal-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #7c3aed, #00eaff);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* Hover Animation Override */
+.vision-box.pop:hover {
+    border-color: #00eaff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 234, 255, 0.15);
+}
+/* Skills */
+.skills-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; padding-bottom: 60px; }
+.skill { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); padding: 10px 20px; border-radius: 30px; }
+
+/* Effects */
+.pop:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 0 20px #00eaff44; border-color: #00eaff; }
+
+@media (max-width: 600px) {
+    .profile-container { flex-direction: column; text-align: center; }
+    .profile-right { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-left: 0; padding-top: 20px; }
+}
+
+footer { padding: 50px; border-top: 1px solid rgba(255,255,255,0.05); }
